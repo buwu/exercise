@@ -1,0 +1,44 @@
+*{margin:0;padding: 0;}
+body{
+    background-color: #66677c;
+    /*文本不能被选中*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.showtree{
+    width: 120px;
+    height: 180px;
+    margin: 150px auto 0;
+    position: relative;
+    /*子元素被保留3D转换*/
+    transform-style:preserve-3d;
+    /*perspective定义透视视图，即视觉点（眼睛或者屏幕）到元素的中心的距离；绕X轴旋转-10deg*/
+    transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+.showtree img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    /*图片白色阴影*/
+    box-shadow: 0px 0px 10px #fff;
+    /*倒影的设置 ：below 倒影在下面，倒影距离对象10px，倒影颜色线性渐变*/
+    -webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);
+}
+/*白色光影分开图片与倒影*/
+.showtree p{
+    width: 1200px;
+    height: 1200px;
+    /*背景颜色 径向渐变 由x,y轴中心向外，由白色透明度0.5到黑色*/
+    background: -webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+    position: absolute;
+    top:100%;
+    left:50%;
+    margin-top: -600px;
+    margin-left: -600px;
+    border-radius:600px;
+    /*绕x轴旋转90度，分割图片与倒影*/
+    transform:rotateX(90deg);
+}
